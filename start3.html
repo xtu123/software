@@ -1,0 +1,339 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8" />
+		<title></title>
+		<link type="text/css" rel="stylesheet" href="css/main.css" />
+		<script type="text/javascript">
+		    var imgs;
+		    var gametime;
+		    var ci;
+		    var ctt;
+		    var bk;
+		    var j;
+		    var j1;
+		    var count=0;//得到分数
+		    var sum =0;//打中个数
+		
+		//用来暂停一秒
+		    function j()
+		    {
+		    }
+		//点击开始游戏
+			function start(){
+				gametime=30;
+				count=0;
+				//1s调用一下
+				//changeIMG();
+				
+				ci=window.setInterval("change()",500);
+				ctt=window.setInterval("ct()",1000);
+			}
+		//点击帮助按钮
+			function help(){
+				
+			}
+		//点击退出按钮
+			function exit(){
+				
+			}
+			//让随机出现还原
+			function back(index){
+			    var img=imgs[index];
+			    img.src="img/00.jpg";
+			}
+		//给点击的小人戴口罩
+		    function change(){
+		    	 imgs=document.getElementsByTagName("img");
+				//alert(imgs.length);
+				var index =Math.floor(Math.random()*imgs.length);
+				var img=imgs[index];
+				var t=Math.floor(Math.random()*8+1);
+				if(t==1){
+					img.src="img/01.png";
+				}
+				if(t==2){
+					img.src="img/02.png";
+				}
+				if(t==3){
+					img.src="img/03.png";
+				}
+				if(t==4){
+					img.src="img/04.png";
+				}
+				if(t==5){
+					img.src="img/05.png";
+				}
+				if(t==6){
+					img.src="img/06.png";
+				}
+				if(t==7){
+					img.src="img/07.png";
+				}
+				if(t==8){
+					img.src="img/08.png";
+				}
+				//1s之后还原
+				bk=window.setTimeout("back(" + index +")",1000);
+		    }
+		//点击换图片
+		    function hit(img){
+		    	//当是01的时候切换
+				var name=img.src;
+				var s_n=name.substr(name.length-6);//获得最后的6个字符
+				if(s_n=="01.png"){
+					img.src="img/-10.png"
+					count=count-10;
+					sum--;
+				}
+				if(s_n=="02.png"){
+					img.src="img/-10.png"
+					count=count-10;
+					sum--;
+				}
+				if(s_n=="03.png"){
+					img.src="img/-10.png"
+					count=count-10;
+					sun--;
+				}
+				if(s_n=="04.png"){
+					img.src="img/j10.png"
+					count=count+10;
+				}
+				if(s_n=="05.png"){
+					img.src="img/j20.png"
+					count=count+20;
+					sum++;
+				}
+				if(s_n=="06.png"){
+					img.src="img/j20.png"
+					count=count+20;
+					sum++
+				}
+				if(s_n=="07.png"){
+					img.src="img/j50.png"
+					count=count+50;
+				}
+				if(s_n=="08.png"){
+					img.src="img/j50.png"
+					count=count+50;
+				}
+		    }
+		    //计时,每隔1s进行一次
+			function ct(){
+				gametime--;
+				//更新剩余时间
+				var t = document.getElementById("gt");
+				t.innerHTML =gametime;
+				if(gametime==0){
+					gameover();
+				}
+			}
+			function gameover(){
+				//停掉计时器
+				window.clearInterval(ci);
+				window.clearInterval(ctt);
+				window.clearTimeout(bk);
+				//重置表格资源
+				for(var i in imgs){
+					imgs[i].src="img/00.jpg";
+				}
+				if(count>=2000)
+				{
+            	    var t = document.getElementById("fen11");
+				    t.innerHTML =sum;
+				    var t2 = document.getElementById("fen22");
+				    t2.innerHTML =count;
+					document.getElementById("next_g").style.display="block";
+				}
+				else{
+					var t = document.getElementById("fen111");
+				    t.innerHTML =sum;
+				    var t2 = document.getElementById("fen222");
+				    t2.innerHTML =count;
+					document.getElementBy
+					document.getElementById("s_bai").style.display="block";
+				}
+				//alert("游戏结束,得分：count=" + count);
+				
+			}
+			//音频播放与暂停
+            function playOrPause(){
+                var audio  =    document.getElementById("audio");
+                if(audio.paused){
+                    audio.play();
+                    document.getElementById("playbtn").style.backgroundImage = "url(img/musicplaying.png)";
+                }else if(audio.played){
+                    audio.pause();
+                    document.getElementById("playbtn").style.backgroundImage = "url(img/musicpause.png)";
+                }
+            }
+            var isZT = false;//判断是否为暂停，false表示未点击暂停
+            var zt_time;//暂停时的倒计时值
+            var jx_id;//继续游戏的倒计时id
+            var startBtn;//游戏开始按钮
+            
+            //暂停游戏
+            function zt(){
+            	jx_id=gametime;
+            	document.getElementById("ztk").style.display="block";
+            	var t = document.getElementById("fen1");
+				t.innerHTML =sum;
+				var t2 = document.getElementById("fen2");
+				t2.innerHTML =count;
+            	
+				//停掉计时器
+				window.clearInterval(ci);
+				window.clearInterval(ctt);
+				window.clearTimeout(bk);
+				//重置表格资源
+				for(var i in imgs){
+					imgs[i].src="img/00.jpg";
+				}
+				
+            }
+                //继续游戏
+            function jx(){
+            	gametime=jx_id;
+            	document.getElementById("ztk").style.display="none";
+            	if(gametime>0)
+            	{
+            		ci=window.setInterval("change()",1000);
+				ctt=window.setInterval("ct()",1000);
+            	}
+            }
+		</script>
+	</head>
+	<body onload="start();">
+		<!--标题：全员口罩进行中-->
+		<div id="top">
+			
+		    </div>
+		<!--游戏界面-->
+		<div id="s_inner">
+			<div id="sysj">
+				
+				
+			</div>
+			<h1 style="margin-top: 12px;"><span id="gt">0</span></h1>
+			<div id="s3"></div>
+			<div id="s2"></div>
+			<div id="s1"></div>
+		    <!--暂停框
+            -->
+		    <div id="ztk">
+		    	<div id="kkk">
+		    		<h2 style="margin-top: 70px;text-align: center;">游戏已暂停！</h2>
+		    	    <h2 style="margin-top: 10px;text-align: center;">你已经给<span id="fen1">0</span>人戴上了口罩</h2>
+		    	    <h2 style="margin-top: 10px;text-align: center;">你的得分为：</h2>
+		    	    <h2 style="margin-top: 10px;text-align: center;"><span id="fen2">0</span></h2>
+		    	    <a href="index.html">
+		    		    <input type="button" id="zt1" value=""/>
+		    	    </a>
+		    	    <input type="button" id="zt2" value=""  onclick="jx()"/>
+		    	</div>
+		    </div>
+		    <div id="next_g">
+		    	<div id="kkk">
+		    		<h2 style="margin-top: 70px;text-align: center;">恭喜过关！！</h2>
+		    	    <h2 style="margin-top: 10px;text-align: center;">你已经给<span id="fen11">0</span>人戴上了口罩</h2>
+		    	    <h2 style="margin-top: 10px;text-align: center;">你的得分为：</h2>
+		    	    <h2 style="margin-top: 10px;text-align: center;"><span id="fen22">0</span></h2>
+		    	    
+		    	    <a href="index.html">
+		    		    <input type="button" id="zt1" value=""/>
+		    	    </a>
+		    	    <a href="start3.html">
+		    		    <input type="button" id="xyg" value=""/>
+		    	    </a>
+		    	    <!--
+                    	<input type="button" id="zt2" value=""  onclick="jx()"/>
+                    -->
+		    	</div>
+		    </div>
+		    <div id="s_bai">
+		    	<div id="kkk">
+		    		<h2 style="margin-top: 70px;text-align: center;">游戏失败！！</h2>
+		    	    <h2 style="margin-top: 10px;text-align: center;">你已经给<span id="fen111">0</span>人戴上了口罩</h2>
+		    	    <h2 style="margin-top: 10px;text-align: center;">你的得分为：</h2>
+		    	    <h2 style="margin-top: 10px;text-align: center;"><span id="fen222">0</span></h2>
+		    	    
+		    	    <a href="index.html">
+		    		    <input type="button" id="zt1" value=""/>
+		    	    </a>
+		    	    <a href="start3.html">
+		    		    <input type="button" id="cxyx" value=""/>
+		    	    </a>
+		    	    <!--
+                    	<input type="button" id="zt2" value=""  onclick="jx()"/>
+                    -->
+		    	</div>
+		    </div>
+			<table id="s_human" border="1px">
+				<tr>
+					<td>
+						<img src="img/00.jpg" width="80px" height="80px" onclick="hit(this)"/>
+					</td>
+					<td>
+						<img src="img/00.jpg" width="80px" height="80px"onclick="hit(this)"/>
+					</td>
+					<td>
+						<img src="img/00.jpg" width="80px" height="80px"onclick="hit(this)"/>
+					</td>
+					<td>
+						<img src="img/00.jpg" width="80px" height="80px"onclick="hit(this)"/>
+					</td>
+					<td>
+						<img src="img/00.jpg" width="80px" height="80px"onclick="hit(this)"/>
+					</td>
+					<td>
+						<img src="img/00.jpg" width="80px" height="80px"onclick="hit(this)"/>
+					</td>
+					<td>
+						<img src="img/00.jpg" width="80px" height="80px"onclick="hit(this)"/>
+					</td>
+					<td>
+						<img src="img/00.jpg" width="80px" height="80px"onclick="hit(this)"/>
+					</td>
+				</tr>
+				<tr>
+					<td>
+						<img src="img/00.jpg" width="80px" height="80px" onclick="hit(this)"/>
+					</td>
+					<td>
+						<img src="img/00.jpg" width="80px" height="80px"onclick="hit(this)"/>
+					</td>
+					<td>
+						<img src="img/00.jpg" width="80px" height="80px"onclick="hit(this)"/>
+					</td>
+					<td>
+						<img src="img/00.jpg" width="80px" height="80px"onclick="hit(this)"/>
+					</td>
+					<td>
+						<img src="img/00.jpg" width="80px" height="80px"onclick="hit(this)"/>
+					</td>
+					<td>
+						<img src="img/00.jpg" width="80px" height="80px"onclick="hit(this)"/>
+					</td>
+					<td>
+						<img src="img/00.jpg" width="80px" height="80px"onclick="hit(this)"/>
+					</td>
+					<td>
+						<img src="img/00.jpg" width="80px" height="80px"onclick="hit(this)"/>
+					</td>
+				</tr>
+				
+			</table>
+			<!--游戏按钮 -->
+			<div id="btn">
+	    	    <input id="stop" type="button" value="" onclick="zt()"/>
+	    	    <audio id="audio" src="audio/game_music.ogg" autoplay="autoplay" loop="loop"  ></audio>
+	    	    <input onclick="playOrPause()" id="v_btn" type="button" value=""></input>
+	    	    
+	        </div>
+	        
+		</div>
+		
+	    
+	</body>
+</html>

@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<link type="text/css" rel="stylesheet" href="css/main.css" />
+		<title></title>
+		<script type="text/javascript">
+			//音频播放与暂停
+            function playOrPause(){
+                var audio  =    document.getElementById("audio");
+                if(audio.paused){
+                    audio.play();
+                    document.getElementById("playbtn").style.backgroundImage = "url(img/musicplaying.png)";
+                }else if(audio.played){
+                    audio.pause();
+                    document.getElementById("playbtn").style.backgroundImage = "url(img/musicpause.png)";
+                }
+            }
+		</script>
+	</head>
+	<body>
+		<!--游戏界面-->
+		<div id="top">
+		    </div>
+		<div id="h_inner" >
+			<audio id="audio" src="audio/IU-JAM JAM.mp3" autoplay="autoplay" loop="loop"  ></audio>
+	    	    <input onclick="playOrPause()" id="v_btn" type="button" value=""></input>
+			
+			<a href="index.html">
+				<input id="r_btn" type="button" value=""/>
+			</a>
+			<div id="xq">
+				<h1 style=" margin-top: 85px;text-align: center;">游戏规则说明：</h1>
+				
+				<h3 style="text-align: center;margin-top: 20px;">1、本游戏共三关，得到一定的分数即可进行下一关</h3>
+				<h3 style="text-align: center;">2、加分详情：点击没戴口罩小人、猪、病毒等+5~+50</h3>
+				<h3 style="text-align: center;">3、减分详情：点击已经戴口罩小人-10~-20</h3>
+				<h3 style="text-align: center; margin-top: 20px;">考验观察力和反应力</h3>
+				<h3 style="text-align: center;">一起来玩吧！</h3>
+				<img src="img/02.png" style="width: 100px; margin-top: 30px;margin-left: 150px; float: left;"  />
+				<h4 style=" margin-top: 50px;">出门玩耍记得戴口罩哟~</h4>
+			</div>
+		</div>
+	</body>
+</html>

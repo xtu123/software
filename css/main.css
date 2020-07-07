@@ -1,0 +1,339 @@
+@charset "utf-8";
+/*公共样式*/
+*{
+	margin: 0;
+	padding: 0;
+	border: 0;
+}
+body{
+	background-image: url(../img/背景图.jpg);
+	background-repeat-y: no-repeat;
+}
+#top {
+	position: absolute;
+	width: 500px;
+	height: 100px;
+	top: 0px;
+
+	background-image: url(../img/000.png);
+	background-repeat-y: no-repeat;
+	background-size: 100%;
+    margin-left: 35%;
+}
+
+#inner{
+	position: relative;
+	width: 820px;
+	height: 470px;
+	/*background-color: blue;*/
+	background-image: url(../bg/bg.png);
+	background-size: 100%;
+	background-repeat-x: no-repeat;
+	margin: 100px auto;
+	border-radius: 8%;
+	overflow: hidden;
+}
+#s_inner{
+	position: relative;
+	width: 650px;
+	height: 540px;
+	/*background-color: blue;*/
+	background-image: url(../img/09.png);
+	background-size: 100%;
+	background-repeat-x: no-repeat;
+	margin: 100px auto;
+	border-radius: 8%;
+	overflow: hidden;
+}
+#h_inner{
+	position: relative;
+	width: 820px;
+	height: 470px;
+	/*background-color: blue;*/
+	background-image:  url(../bg/bg2.jpg);
+	background-size: 100% 100%;
+	background-repeat-x: no-repeat;
+	margin: 100px auto;
+	border-radius: 8%;
+	overflow: hidden;
+}
+#human{
+	position: absolute;
+	margin-top: 210px;
+	width: 800px;
+	height: 170px;
+	/*background-color: aliceblue;*/
+	border: 0;
+	border-radius: 10%;
+	overflow: hidden;
+}
+#s_human{
+	position: absolute;
+	margin-top: 310px;
+	width: 650px;
+	height: 160px;
+
+	border: 0;
+	border-radius: 10%;
+	overflow: hidden;
+}
+#hezi{
+	width: 70px;
+}
+/*首页按钮*/
+#v_btn {
+	position: absolute;
+	width: 40px;
+	height: 40px;
+	/*background-color: #A52A2A;*/
+	background-image: url(../img/02.jpg);
+	background-size: 40px 40px;
+	right: 10px;
+	top: 5px;
+	border-radius: 50%;
+	overflow: hidden;
+}
+
+#s_btn {
+	position: absolute;
+	/*background-color: greenyellow;*/
+	background-image: url(../img/开始.png);
+	background-size: 400px 55px;
+	overflow: hidden;
+	left: 10px;
+	top: 70px;
+	width: 85px;
+	height: 50px;
+	border-radius: 20%;
+	
+}
+#s_btn:active{
+	background-color: coral;
+}
+#s_btn:hover{
+	background-color: chocolate;
+}
+#h_btn {
+	position: absolute;
+	/*background-color: brown;*/
+	background-image:  url(../img/帮助.png);
+	background-size: 400px 55px;
+	left: 10px;
+	top: 180px;
+	width: 85px;
+	height: 50px;
+	border-radius: 20%;
+}
+#h_btn:hover{
+	background-color: chocolate;
+}
+#f_btn {
+	position: absolute;
+	/*background-color: brown;*/
+	background-image:   url(../img/退出游戏.png);
+	background-size: 400px 55px;
+	left: 10px;
+	top: 270px;
+	width: 130px;
+	height: 50px;
+	border-radius: 20%;
+}
+#f_btn:hover{
+	background-color: chocolate;
+}
+/*帮助页面按钮*/
+#r_btn {
+	position: absolute;
+	/*background-color: brown;*/
+	background-image: url(../img/返回主菜单.png);
+	background-size: 400px 55px;
+	left: 45%;
+	bottom: 10px;
+	width: 160px;
+	height: 50px;
+	border-radius: 20%;
+}
+#r_btn:hover{
+	background-color: chocolate;
+}
+
+/*暂停按钮*/
+#stop{
+	position: absolute;
+	/*background-color: brown;*/
+	background-image: url(../img/暂停.png);
+	background-size: 400px 55px;
+	right: 10px;
+	top: 60px;
+	width: 85px;
+	height: 50px;
+	border-radius: 20%;
+}
+#stop:hover{
+	background-color: chocolate;
+}
+#sysj{
+	width: 140px;
+	overflow: hidden;
+	height: 60px;
+	float: left;
+	background-image: url(../img/剩余时间.png);
+	background-size: 350px 65px;
+	
+}
+#kkk{
+	overflow: hidden;
+	width: 400px;
+	height: 300px;
+	
+	background-image:  url(../img/kk.png);
+	background-size: 100%;
+	background-repeat-y: no-repeat;
+
+	border-radius: 30%;
+}
+#ztk{
+	display: none;
+	width: 400px;
+	height: 800px;
+	margin-top: 10px;
+	margin-left: 130px;
+	background-size: 100%;
+	background-repeat-y: no-repeat;
+	float: left;
+
+}
+#next_g{
+	display: none;
+	width: 400px;
+	height: 800px;
+	margin-top: 10px;
+	margin-left: 130px;
+	
+	background-size: 100%;
+	background-repeat-y: no-repeat;
+	float: left;
+}
+#s_bai{
+	display: none;
+	width: 400px;
+	height: 800px;
+	margin-top: 10px;
+	margin-left: 130px;
+	
+	background-size: 100%;
+	background-repeat-y: no-repeat;
+	float: left;
+}
+#xyg{
+	
+	/*background-color: brown;*/
+	background-image:  url(../img/下一关.png);
+	background-size: 400px 55px;
+	width: 140px;
+	height: 50px;
+	margin-left: 20px;
+	margin-top: 0px;
+	border-radius: 20%;
+}
+#xyg:hover{
+	background-color: chocolate;
+}
+#cxyx{
+	
+	/*background-color: brown;*/
+	background-image: url(../img/新游戏.png);
+	background-size: 350px 55px;
+	width: 140px;
+	height: 50px;
+	margin-left: 20px;
+	margin-top: 0px;
+	border-radius: 20%;
+}
+#cxyx:hover{
+	background-color: chocolate;
+}
+#zt_btn{
+	height: 100px;
+	margin-top: 0;
+}
+#zt1{
+	
+	/*background-color: brown;*/
+	background-image: url(../img/返回主菜单.png);
+	background-size: 400px 55px;
+	width: 160px;
+	height: 50px;
+	margin-left: 30px;
+	margin-top: 0px;
+	border-radius: 20%;
+}
+#zt1:hover{
+	background-color: chocolate;
+}
+#zt2{
+	
+	/*background-color: brown;*/
+	background-image:  url(../img/继续游戏.png);
+	background-size: 400px 55px;
+	width: 140px;
+	height: 50px;
+	margin-left: 20px;
+	margin-top: 0px;
+	border-radius: 20%;
+}
+#zt2:hover{
+	background-color: chocolate;
+}
+#zt3{
+	
+	/*background-color: brown;*/
+	background-image: url(../img/帮助.png);
+	background-size: 400px 55px;
+	width: 80px;
+	height: 50px;
+	margin-left: 20px;
+	margin-top: 70px;
+	border-radius: 20%;
+	
+}
+#zt3:hover{
+	background-color: chocolate;
+}
+#sm{
+	width: 550px;
+	height: 300px;
+	position: absolute;
+	margin-top: 30px;
+	margin-left: 300px;
+}
+#xq{
+	background-image: url(../img/h_s.png);
+	width: 800px;
+	height: 600px;
+	background-size: 800px 450px;
+	overflow: hidden;
+	margin-top: 10px;
+	margin-left: 20px;	
+}
+#demo {
+	overflow: hidden;
+	width: 120px;
+	height: 110px;
+	margin-left: 180px;
+	margin-top: 120px;
+	border-radius: 8%;
+}
+
+#indemo {
+	float: left;
+	width: 1800%;
+}
+
+#demo1 {
+	float: left;
+}
+
+#demo2 {
+	float: left;
+}

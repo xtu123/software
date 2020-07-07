@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<link type="text/css" rel="stylesheet" href="css/main.css" />
+		<title></title>
+		<script type="text/javascript">
+			//音频播放与暂停
+            function playOrPause(){
+                var audio  =    document.getElementById("audio");
+                if(audio.paused){
+                    audio.play();
+                    document.getElementById("playbtn").style.backgroundImage = "url(img/musicplaying.png)";
+                }else if(audio.played){
+                    audio.pause();
+                    document.getElementById("playbtn").style.backgroundImage = "url(img/musicpause.png)";
+                }
+            }
+		</script>
+	</head>
+	<body>
+		<!--游戏界面-->
+		<div id="top">
+		    </div>
+		<div id="h_inner" >
+			
+			
+			<a href="index.html">
+				<input id="r_btn" type="button" value=""/>
+			</a>
+			<audio id="audio" src="audio/IU-JAM JAM.mp3" autoplay="autoplay" loop="loop"  ></audio>
+	    	    <input onclick="playOrPause()" id="v_btn" type="button" value=""></input>
+	    	<div id="xq">
+				<h1 style="text-align: center; margin-top: 80px;">退出直接点x</h1>
+				<h1 style="text-align: center;">-----------------------------</h1>
+				<h3 style="text-align: center;margin-top: 0px;">你要走，我不挽留</h3>
+				
+				<h3 style="text-align: center;margin-top: 20px;">出门戴口罩，安全你我他</h3>
+				<h3 style="text-align: center;margin-top: 20px;">少出门，少逛街，出门逛街戴口罩</h3>
+				
+				<img src="img/02.png" style="width: 100px; margin-top: 30px;margin-left: 150px; float: left;"  />
+				<h4 style=" margin-top: 60px;">出门玩耍记得戴口罩哟~</h4>
+			</div>
+		</div>
+	</body>
+</html>
